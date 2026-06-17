@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    environment:
+      - "FLASK_ENV=testing"
+      - "DATABASE_URL=sqlite:///:memory:"
+      - "PYTHONPATH=."
+    command: pytest tests/
