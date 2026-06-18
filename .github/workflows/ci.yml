@@ -39,6 +39,6 @@ jobs:
       if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
       run: |
         npm install -g @railway/cli
-        railway up --detach --service ${{ secrets.RAILWAY_SERVICE_ID }} --project ${{ secrets.RAILWAY_PROJECT_ID }}
+        railway up --detach --service ${{ secrets.RAILWAY_SERVICE_ID }} --project ${{ secrets.RAILWAY_PROJECT_ID }} --environment production
       env:
         RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
