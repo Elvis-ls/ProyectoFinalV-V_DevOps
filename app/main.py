@@ -6,7 +6,12 @@ app = Flask(__name__)
 
 # Database configuration
 db_path = os.path.join(os.path.dirname(__file__), 'tasks.db')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', f'sqlite:///{db_path}')
+db_url = os.environ.get('DATABASE_URL', f'sqlite:///{db_path}')
+# Fix for Railway/Heroku postgres:// vs postgresql://
+if db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql://", 1)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
