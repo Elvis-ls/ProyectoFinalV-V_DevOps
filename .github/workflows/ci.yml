@@ -34,3 +34,11 @@ jobs:
         PYTHONPATH: .
       run: |
         pytest tests/
+
+    - name: Deploy to Railway
+      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+      run: |
+        npm install -g @railway/cli
+        railway up --detach
+      env:
+        RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
