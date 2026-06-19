@@ -1,0 +1,14 @@
+# Asistente virtual local
+agy.ps1
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+
+
