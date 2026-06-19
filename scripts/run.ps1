@@ -8,5 +8,5 @@ if ($Mode -eq "test") {
 } else {
     Write-Host "Ejecutando en modo DESARROLLO..."
     docker-compose up -d
-    Write-Host "Aplicación iniciada en http://localhost:5000"
+    Write-Host "Aplicacion iniciada en http://localhost:5000"
 }
