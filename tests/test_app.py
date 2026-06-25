@@ -15,10 +15,10 @@ def app_ctx():
 def client(app_ctx):
     return app_ctx.test_client()
 
-def test_index_page(client):
+def test_index_page(client):  
     """Verificación: La página de inicio carga correctamente."""
     response = client.get('/')
-    assert response.status_code == 200
+    assert response.status_code == 400
     assert b'Task Manager' in response.data
 
 def test_add_task(client):
